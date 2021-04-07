@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/tommy-toes/static/css/main.8c8b27cf.chunk.css",
-    "main.js": "/tommy-toes/static/js/main.0eb7396f.chunk.js",
-    "main.js.map": "/tommy-toes/static/js/main.0eb7396f.chunk.js.map",
-    "runtime-main.js": "/tommy-toes/static/js/runtime-main.f0ffa91e.js",
-    "runtime-main.js.map": "/tommy-toes/static/js/runtime-main.f0ffa91e.js.map",
-    "static/js/2.ff705e3a.chunk.js": "/tommy-toes/static/js/2.ff705e3a.chunk.js",
-    "static/js/2.ff705e3a.chunk.js.map": "/tommy-toes/static/js/2.ff705e3a.chunk.js.map",
-    "static/js/3.dae36284.chunk.js": "/tommy-toes/static/js/3.dae36284.chunk.js",
-    "static/js/3.dae36284.chunk.js.map": "/tommy-toes/static/js/3.dae36284.chunk.js.map",
+    "main.css": "/tommy-toes/static/css/main.0d0b6249.chunk.css",
+    "main.js": "/tommy-toes/static/js/main.490d7beb.chunk.js",
+    "main.js.map": "/tommy-toes/static/js/main.490d7beb.chunk.js.map",
+    "runtime-main.js": "/tommy-toes/static/js/runtime-main.0f99e856.js",
+    "runtime-main.js.map": "/tommy-toes/static/js/runtime-main.0f99e856.js.map",
+    "static/js/2.3867eb2c.chunk.js": "/tommy-toes/static/js/2.3867eb2c.chunk.js",
+    "static/js/2.3867eb2c.chunk.js.map": "/tommy-toes/static/js/2.3867eb2c.chunk.js.map",
+    "static/js/3.81932121.chunk.js": "/tommy-toes/static/js/3.81932121.chunk.js",
+    "static/js/3.81932121.chunk.js.map": "/tommy-toes/static/js/3.81932121.chunk.js.map",
     "index.html": "/tommy-toes/index.html",
-    "static/css/main.8c8b27cf.chunk.css.map": "/tommy-toes/static/css/main.8c8b27cf.chunk.css.map",
-    "static/js/2.ff705e3a.chunk.js.LICENSE.txt": "/tommy-toes/static/js/2.ff705e3a.chunk.js.LICENSE.txt",
-    "static/media/logo.6ce24c58.svg": "/tommy-toes/static/media/logo.6ce24c58.svg"
+    "static/css/main.0d0b6249.chunk.css.map": "/tommy-toes/static/css/main.0d0b6249.chunk.css.map",
+    "static/js/2.3867eb2c.chunk.js.LICENSE.txt": "/tommy-toes/static/js/2.3867eb2c.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/tommy-toes/static/media/Telegraf-Regular.0c6d87bb.otf"
   },
   "entrypoints": [
-    "static/js/runtime-main.f0ffa91e.js",
-    "static/js/2.ff705e3a.chunk.js",
-    "static/css/main.8c8b27cf.chunk.css",
-    "static/js/main.0eb7396f.chunk.js"
+    "static/js/runtime-main.0f99e856.js",
+    "static/js/2.3867eb2c.chunk.js",
+    "static/css/main.0d0b6249.chunk.css",
+    "static/js/main.490d7beb.chunk.js"
   ]
 }

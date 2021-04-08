@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/tommy-toes/static/css/main.c87d6b65.chunk.css",
-    "main.js": "/tommy-toes/static/js/main.2c74662e.chunk.js",
-    "main.js.map": "/tommy-toes/static/js/main.2c74662e.chunk.js.map",
+    "main.js": "/tommy-toes/static/js/main.4bb9e6bd.chunk.js",
+    "main.js.map": "/tommy-toes/static/js/main.4bb9e6bd.chunk.js.map",
     "runtime-main.js": "/tommy-toes/static/js/runtime-main.efc7638b.js",
     "runtime-main.js.map": "/tommy-toes/static/js/runtime-main.efc7638b.js.map",
     "static/css/2.a1596f27.chunk.css": "/tommy-toes/static/css/2.a1596f27.chunk.css",
@@ -23,6 +23,6 @@
     "static/css/2.a1596f27.chunk.css",
     "static/js/2.30dc86f6.chunk.js",
     "static/css/main.c87d6b65.chunk.css",
-    "static/js/main.2c74662e.chunk.js"
+    "static/js/main.4bb9e6bd.chunk.js"
   ]
 }

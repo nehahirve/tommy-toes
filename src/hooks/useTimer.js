@@ -1,14 +1,14 @@
 import { useState } from 'react'
 
-import alarmSFX from './alarm.wav'
-import workSFX from './work.mp3'
+import alarmSFX from '../alarm.wav'
+import workSFX from '../work.mp3'
 
 const alarm = new Audio(alarmSFX)
 const work = new Audio(workSFX)
 alarm.volume = 0.6
 
-const DURATION = 1000 * 60 * 25
-const BREAK_DURATION = 1000 * 5 * 60
+export const DURATION = 1000 * 6
+const BREAK_DURATION = 1000 * 4
 
 export default function useTimer() {
   const [timer, setTimer] = useState({
@@ -19,6 +19,7 @@ export default function useTimer() {
   })
 
   const toggleTimer = action => {
+    console.log(action)
     switch (action) {
       case 'START':
         setTimer({ ...timer, active: true, control: 'PAUSE' })
@@ -46,9 +47,8 @@ export default function useTimer() {
       case 'COUNTDOWN':
         setTimer({
           ...timer,
-          control: 'START',
-          onABreak: false,
-          time: DURATION
+          control: 'PAUSE',
+          time: timer.time - 1000
         })
         break
       case 'STARTBREAK':

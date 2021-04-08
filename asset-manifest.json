@@ -1,24 +1,27 @@
 {
   "files": {
-    "main.css": "/tommy-toes/static/css/main.e97dace1.chunk.css",
-    "main.js": "/tommy-toes/static/js/main.b244742a.chunk.js",
-    "main.js.map": "/tommy-toes/static/js/main.b244742a.chunk.js.map",
-    "runtime-main.js": "/tommy-toes/static/js/runtime-main.0f99e856.js",
-    "runtime-main.js.map": "/tommy-toes/static/js/runtime-main.0f99e856.js.map",
-    "static/js/2.0751c5ef.chunk.js": "/tommy-toes/static/js/2.0751c5ef.chunk.js",
-    "static/js/2.0751c5ef.chunk.js.map": "/tommy-toes/static/js/2.0751c5ef.chunk.js.map",
-    "static/js/3.81932121.chunk.js": "/tommy-toes/static/js/3.81932121.chunk.js",
-    "static/js/3.81932121.chunk.js.map": "/tommy-toes/static/js/3.81932121.chunk.js.map",
+    "main.css": "/tommy-toes/static/css/main.ede6cef8.chunk.css",
+    "main.js": "/tommy-toes/static/js/main.56bc3a3e.chunk.js",
+    "main.js.map": "/tommy-toes/static/js/main.56bc3a3e.chunk.js.map",
+    "runtime-main.js": "/tommy-toes/static/js/runtime-main.3df9d5f5.js",
+    "runtime-main.js.map": "/tommy-toes/static/js/runtime-main.3df9d5f5.js.map",
+    "static/css/2.a1596f27.chunk.css": "/tommy-toes/static/css/2.a1596f27.chunk.css",
+    "static/js/2.fa7e54eb.chunk.js": "/tommy-toes/static/js/2.fa7e54eb.chunk.js",
+    "static/js/2.fa7e54eb.chunk.js.map": "/tommy-toes/static/js/2.fa7e54eb.chunk.js.map",
+    "static/js/3.ae0f64c8.chunk.js": "/tommy-toes/static/js/3.ae0f64c8.chunk.js",
+    "static/js/3.ae0f64c8.chunk.js.map": "/tommy-toes/static/js/3.ae0f64c8.chunk.js.map",
     "index.html": "/tommy-toes/index.html",
-    "static/css/main.e97dace1.chunk.css.map": "/tommy-toes/static/css/main.e97dace1.chunk.css.map",
-    "static/js/2.0751c5ef.chunk.js.LICENSE.txt": "/tommy-toes/static/js/2.0751c5ef.chunk.js.LICENSE.txt",
+    "static/css/2.a1596f27.chunk.css.map": "/tommy-toes/static/css/2.a1596f27.chunk.css.map",
+    "static/css/main.ede6cef8.chunk.css.map": "/tommy-toes/static/css/main.ede6cef8.chunk.css.map",
+    "static/js/2.fa7e54eb.chunk.js.LICENSE.txt": "/tommy-toes/static/js/2.fa7e54eb.chunk.js.LICENSE.txt",
     "static/media/index.css": "/tommy-toes/static/media/Telegraf-Regular.0c6d87bb.otf",
     "static/media/alarm.0b403865.wav": "/tommy-toes/static/media/alarm.0b403865.wav"
   },
   "entrypoints": [
-    "static/js/runtime-main.0f99e856.js",
-    "static/js/2.0751c5ef.chunk.js",
-    "static/css/main.e97dace1.chunk.css",
-    "static/js/main.b244742a.chunk.js"
+    "static/js/runtime-main.3df9d5f5.js",
+    "static/css/2.a1596f27.chunk.css",
+    "static/js/2.fa7e54eb.chunk.js",
+    "static/css/main.ede6cef8.chunk.css",
+    "static/js/main.56bc3a3e.chunk.js"
   ]
 }

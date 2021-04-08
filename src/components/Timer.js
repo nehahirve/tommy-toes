@@ -8,7 +8,8 @@ const Display = styled.button`
   font-size: 6rem;
   border: 6px solid black;
   border-radius: 999px;
-  background: none;
+  color: ${props => (props.onABreak ? 'white' : 'black')};
+  background: ${props => (props.onABreak ? 'black' : 'none')};
   padding-top: 0.25rem;
   cursor: pointer;
   &:hover,
@@ -20,13 +21,14 @@ const Display = styled.button`
   }
 `
 
-const Timer = ({ time, active, toggleActive }) => {
+const Timer = ({ time, active, toggleActive, onABreak }) => {
   const [buttonText, setButtonText] = useState(null)
 
   const handleHover = () => {
     if (active) setButtonText('PAUSE')
     else setButtonText('START')
-    if (time === 0) setButtonText('RESET')
+    if (time === 0 && onABreak) setButtonText('RESET')
+    if (time === 0 && !onABreak) setButtonText('BREAK')
   }
 
   return (
@@ -48,6 +50,7 @@ const Timer = ({ time, active, toggleActive }) => {
           setButtonText(null)
         }}
         onClick={e => toggleActive(e)}
+        onABreak={onABreak}
       >
         {buttonText || msToHuman(time)}
       </Display>

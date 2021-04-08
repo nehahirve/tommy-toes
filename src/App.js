@@ -5,9 +5,14 @@ import Backdrop from './components/Backdrop'
 import styled from 'styled-components'
 
 import alarmSFX from './alarm.wav'
+import workSFX from './work.mp3'
 const alarm = new Audio(alarmSFX)
 alarm.volume = 0.6
-const duration = 1000 * 1500
+
+const work = new Audio(workSFX)
+
+const duration = 1000 * 6
+const BREAK_DURATION = 1000 * 4
 
 const Toggle = styled.button`
   position: absolute;
@@ -34,15 +39,17 @@ const Toggle = styled.button`
 function App() {
   const [time, setTime] = useState(duration)
   const [active, setActive] = useState(false)
+  const [onABreak, setOnABreak] = useState(false)
   const [appVisible, setAppVisible] = useState(true)
 
   const toggleActive = e => {
-    e.target.blur()
+    if (e) e.target.blur()
     setActive(!active)
   }
 
   useEffect(() => {
-    if (active && time === 0) alarm.play({ volume: 0.25 })
+    if (active && time === 0 && !onABreak) alarm.play()
+    if (active && time === 0 && onABreak) work.play()
     let timer
     if (active) {
       timer =
@@ -51,7 +58,12 @@ function App() {
           setTime(time - 1000)
           console.log('countdown')
         }, 1000)
-    } else if (time === 0) {
+    } else if (time === 0 && !onABreak) {
+      toggleActive()
+      setOnABreak(!onABreak)
+      setTime(BREAK_DURATION)
+    } else if (time === 0 && onABreak) {
+      setOnABreak(!onABreak)
       setActive(false)
       setTime(duration)
     } else if (timer) {
@@ -63,12 +75,17 @@ function App() {
   }, [time, active])
 
   return (
-    <Backdrop time={time} duration={duration}>
+    <Backdrop onABreak={onABreak} time={time} duration={duration}>
       <Toggle onClick={() => setAppVisible(!appVisible)}>
         {appVisible ? 'About' : 'X'}
       </Toggle>
       {appVisible && (
-        <Timer active={active} time={time} toggleActive={toggleActive} />
+        <Timer
+          onABreak={onABreak}
+          active={active}
+          time={time}
+          toggleActive={toggleActive}
+        />
       )}
       {!appVisible && <About />}
     </Backdrop>

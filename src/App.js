@@ -1,7 +1,10 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Timer from './components/Timer'
 import About from './components/About'
 import styled from 'styled-components'
+
+import alarmSFX from './alarm.wav'
+const alarm = new Audio(alarmSFX)
 
 const Backdrop = styled.div`
   background: #889d02;
@@ -23,12 +26,39 @@ const Toggle = styled.h2`
 `
 
 function App() {
-  const [overlay, toggleOverlay] = useState(false)
+  const [time, setTime] = useState(0.1 * 60 * 1000)
+  const [active, setActive] = useState(false)
+
+  const toggleActive = () => {
+    setActive(!active)
+  }
+
+  useEffect(() => {
+    if (active && time === 0) alarm.play()
+    let timer
+    if (active) {
+      timer =
+        time > 0 &&
+        setInterval(() => {
+          setTime(time - 1000)
+          console.log('countdown')
+        }, 1000)
+    } else if (time === 0) {
+      setActive(false)
+      setTime(0.1 * 60 * 1000)
+    } else if (timer) {
+      clearInterval(timer)
+    }
+    return () => {
+      if (timer) clearInterval(timer)
+    }
+  }, [time, active])
 
   return (
     <Backdrop>
-      <Toggle onClick={() => toggleOverlay(!overlay)}>About</Toggle>
-      <Timer />
+      {/* <Toggle onClick={() => toggleOverlay(!overlay)}>About</Toggle> */}
+      <Timer active={active} time={time} toggleActive={toggleActive} />
+      {/* <About /> */}
     </Backdrop>
   )
 }

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import styled from 'styled-components'
 import { msToHuman } from '../Utils'
 import 'animate.css'
@@ -21,14 +21,22 @@ const Display = styled.button`
   }
 `
 
-const Timer = ({ time, active, toggleActive, onABreak }) => {
-  const [buttonText, setButtonText] = useState(null)
+const Timer = ({ timer, toggleTimer }) => {
+  const [label, setLabel] = useState(null)
+  const { time, control, onABreak } = timer
 
-  const handleHover = () => {
-    if (active) setButtonText('PAUSE')
-    else setButtonText('START')
-    if (time === 0 && onABreak) setButtonText('RESET')
-    if (time === 0 && !onABreak) setButtonText('BREAK')
+  const triggerHoverState = e => {
+    e.target.focus()
+    setLabel(control)
+  }
+  const removeHoverState = e => {
+    e.target.blur()
+    setLabel(null)
+  }
+
+  const handleClick = e => {
+    e.target.blur()
+    toggleTimer(control)
   }
 
   return (
@@ -39,20 +47,14 @@ const Timer = ({ time, active, toggleActive, onABreak }) => {
             ? 'animate__animated animate__infinite animate__wobble'
             : null
         }
-        onMouseEnter={handleHover}
-        onFocus={handleHover}
-        onMouseLeave={e => {
-          e.target.blur()
-          setButtonText(null)
-        }}
-        onBlur={() => {
-          console.log('hey')
-          setButtonText(null)
-        }}
-        onClick={e => toggleActive(e)}
+        onMouseOver={triggerHoverState}
+        onFocus={triggerHoverState}
+        onMouseLeave={removeHoverState}
+        onBlur={removeHoverState}
+        onClick={handleClick}
         onABreak={onABreak}
       >
-        {buttonText || msToHuman(time)}
+        {label || msToHuman(time)}
       </Display>
     </main>
   )

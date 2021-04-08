@@ -6,12 +6,12 @@ import styled from 'styled-components'
 
 import alarmSFX from './alarm.wav'
 import workSFX from './work.mp3'
+
 const alarm = new Audio(alarmSFX)
+const work = new Audio(workSFX)
 alarm.volume = 0.6
 
-const work = new Audio(workSFX)
-
-const duration = 1000 * 6
+const DURATION = 1000 * 6
 const BREAK_DURATION = 1000 * 4
 
 const Toggle = styled.button`
@@ -37,45 +37,61 @@ const Toggle = styled.button`
 `
 
 function App() {
-  const [time, setTime] = useState(duration)
-  const [active, setActive] = useState(false)
-  const [onABreak, setOnABreak] = useState(false)
   const [appVisible, setAppVisible] = useState(true)
+
+  const [timerObj, setTimerObj] = useState({
+    active: false,
+    time: DURATION,
+    onABreak: false,
+    control: null
+  })
 
   const toggleActive = e => {
     if (e) e.target.blur()
-    setActive(!active)
+    setTimerObj({ ...timerObj, active: !timerObj.active })
   }
 
   useEffect(() => {
-    if (active && time === 0 && !onABreak) alarm.play()
-    if (active && time === 0 && onABreak) work.play()
+    if (timerObj.active && timerObj.time === 0 && !timerObj.onABreak)
+      alarm.play()
+    if (timerObj.active && timerObj.time === 0 && timerObj.onABreak) work.play()
     let timer
-    if (active) {
+    if (timerObj.active) {
       timer =
-        time > 0 &&
+        timerObj.time > 0 &&
         setInterval(() => {
-          setTime(time - 1000)
+          setTimerObj({ ...timerObj, time: timerObj.time - 1000 })
           console.log('countdown')
         }, 1000)
-    } else if (time === 0 && !onABreak) {
+    } else if (timerObj.time === 0 && !timerObj.onABreak) {
       toggleActive()
-      setOnABreak(!onABreak)
-      setTime(BREAK_DURATION)
-    } else if (time === 0 && onABreak) {
-      setOnABreak(!onABreak)
-      setActive(false)
-      setTime(duration)
+      setTimerObj({
+        ...timerObj,
+        time: BREAK_DURATION,
+        onABreak: !timerObj.onABreak,
+        active: true
+      })
+    } else if (timerObj.time === 0 && timerObj.onABreak) {
+      setTimerObj({
+        ...timerObj,
+        time: DURATION,
+        active: false,
+        onABreak: !timerObj.onABreak
+      })
     } else if (timer) {
       clearInterval(timer)
     }
     return () => {
       if (timer) clearInterval(timer)
     }
-  }, [time, active])
+  }, [timerObj.time, timerObj.active])
 
   return (
-    <Backdrop onABreak={onABreak} time={time} duration={duration}>
+    <Backdrop
+      onABreak={timerObj.onABreak}
+      time={timerObj.time}
+      duration={DURATION}
+    >
       <Toggle
         onClick={e => {
           setAppVisible(!appVisible)
@@ -86,9 +102,9 @@ function App() {
       </Toggle>
       {appVisible && (
         <Timer
-          onABreak={onABreak}
-          active={active}
-          time={time}
+          onABreak={timerObj.onABreak}
+          active={timerObj.active}
+          time={timerObj.time}
           toggleActive={toggleActive}
         />
       )}

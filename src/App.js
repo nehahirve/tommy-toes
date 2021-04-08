@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import Timer from './components/Timer'
 import About from './components/About'
+import useTimer from './hooks/useTimer'
 import Backdrop from './components/Backdrop'
 import styled from 'styled-components'
 

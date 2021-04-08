@@ -7,18 +7,7 @@ const msToHuman = ms => {
   ].join(' : ')
 }
 
-export { msToHuman }
-
-function rgbStringToRgbObject(c1) {
-  c1 = c1.slice(4, -1).split(',')
-  return {
-    r: +c1[0],
-    g: +c1[1],
-    b: +c1[2]
-  }
-}
-
-export function createGradient(c1, c2) {
+const createGradient = (c1, c2) => {
   c1 = rgbStringToRgbObject(c1)
   c2 = rgbStringToRgbObject(c2)
   let gradient = []
@@ -35,11 +24,22 @@ export function createGradient(c1, c2) {
   })
 }
 
-export function mapToGradient(input, ms) {
+const mapToGradient = (input, ms) => {
   const outputStart = 1
   const outputEnd = 255
   const inputStart = 0
   const inputEnd = ms
   const slope = (outputEnd - outputStart) / (inputEnd - inputStart)
   return outputStart + slope * (input - inputStart)
+}
+
+export { msToHuman, mapToGradient, createGradient }
+
+function rgbStringToRgbObject(c1) {
+  c1 = c1.slice(4, -1).split(',')
+  return {
+    r: +c1[0],
+    g: +c1[1],
+    b: +c1[2]
+  }
 }

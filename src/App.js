@@ -30,8 +30,8 @@ const Toggle = styled.button`
   &:hover,
   &:focus {
     background-size: 100% 70%;
-    color: white;
-    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='20px' height='20px'%3E%3Ccircle cx='50' cy='50' r='50' fill='white'/%3E%3C/svg%3E"),
+    color: linen;
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='20px' height='20px'%3E%3Ccircle cx='50' cy='50' r='50' fill='linen'/%3E%3C/svg%3E"),
       auto;
   }
 `
@@ -76,7 +76,12 @@ function App() {
 
   return (
     <Backdrop onABreak={onABreak} time={time} duration={duration}>
-      <Toggle onClick={() => setAppVisible(!appVisible)}>
+      <Toggle
+        onClick={e => {
+          setAppVisible(!appVisible)
+          e.target.blur()
+        }}
+      >
         {appVisible ? 'About' : 'X'}
       </Toggle>
       {appVisible && (

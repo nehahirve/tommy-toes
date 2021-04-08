@@ -8,15 +8,15 @@ const Display = styled.button`
   font-size: 6rem;
   border: 6px solid black;
   border-radius: 999px;
-  color: ${props => (props.onABreak ? 'white' : 'black')};
+  color: ${props => (props.onABreak ? 'linen' : 'black')};
   background: ${props => (props.onABreak ? 'black' : 'none')};
   padding-top: 0.25rem;
   cursor: pointer;
   &:hover,
   &:focus {
     background: black;
-    color: white;
-    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='20px' height='20px'%3E%3Ccircle cx='50' cy='50' r='50' fill='white'/%3E%3C/svg%3E"),
+    color: linen;
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='20px' height='20px'%3E%3Ccircle cx='50' cy='50' r='50' fill='linen'/%3E%3C/svg%3E"),
       auto;
   }
 `

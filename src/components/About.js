@@ -11,10 +11,10 @@ const Title = styled.a`
 
   &:hover,
   &:focus {
-    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='20px' height='20px'%3E%3Ccircle cx='50' cy='50' r='50' fill='white'/%3E%3C/svg%3E"),
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='20px' height='20px'%3E%3Ccircle cx='50' cy='50' r='50' fill='linen'/%3E%3C/svg%3E"),
       auto;
     background-size: 100% 70%;
-    color: white;
+    color: linen;
   }
 `
 

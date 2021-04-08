@@ -1,12 +1,14 @@
 @font-face {
   font-family: 'Telegraf';
   src: local('Telegraf'), url(./fonts/Telegraf-Regular.otf) format('opentype');
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Agrandir';
   src: local('Agrandir'), url(./fonts/Agrandir-WideLight.otf) format('opentype');
   font-weight: 400;
+  font-display: swap;
 }
 
 @font-face {
@@ -14,6 +16,7 @@
   src: local('Agrandir'),
     url(./fonts/Agrandir-GrandHeavy.otf) format('opentype');
   font-weight: 800;
+  font-display: swap;
 }
 
 * {
@@ -42,4 +45,10 @@ p {
   font-size: 2.5rem;
   font-family: 'Agrandir';
   font-weight: 400;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  font-family: 'Agrandir';
 }

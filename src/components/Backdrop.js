@@ -13,15 +13,17 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='20px' height='20px'%3E%3Ccircle cx='50' cy='50' r='50'/%3E%3C/svg%3E"),
-    auto;
 `
 
-const Backdrop = ({ time, children, duration, breakDuration, onABreak }) => {
+const Backdrop = ({ time, children, duration, onABreak }) => {
   const gradient = onABreak ? gradientBreak : gradientWork
   const ripeness = gradient[Math.floor(mapToGradient(time, duration)) - 1]
 
-  return <Wrapper ripeness={ripeness}>{children}</Wrapper>
+  return (
+    <main>
+      <Wrapper ripeness={ripeness}>{children}</Wrapper>
+    </main>
+  )
 }
 
 export default Backdrop

@@ -11,13 +11,10 @@ const Display = styled.button`
   color: ${props => (props.onABreak ? 'linen' : 'black')};
   background: ${props => (props.onABreak ? 'black' : 'none')};
   padding-top: 0.25rem;
-  cursor: pointer;
   &:hover,
   &:focus {
     background: black;
     color: linen;
-    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='20px' height='20px'%3E%3Ccircle cx='50' cy='50' r='50' fill='linen'/%3E%3C/svg%3E"),
-      auto;
   }
 `
 
@@ -40,23 +37,21 @@ const Timer = ({ timer, toggleTimer }) => {
   }
 
   return (
-    <main>
-      <Display
-        className={
-          time === 0
-            ? 'animate__animated animate__infinite animate__wobble'
-            : null
-        }
-        onMouseOver={triggerHoverState}
-        onFocus={triggerHoverState}
-        onMouseLeave={removeHoverState}
-        onBlur={removeHoverState}
-        onClick={handleClick}
-        onABreak={onABreak}
-      >
-        {label || msToHuman(time)}
-      </Display>
-    </main>
+    <Display
+      className={
+        time === 0
+          ? 'animate__animated animate__infinite animate__wobble'
+          : null
+      }
+      onMouseOver={triggerHoverState}
+      onFocus={triggerHoverState}
+      onMouseLeave={removeHoverState}
+      onBlur={removeHoverState}
+      onClick={handleClick}
+      onABreak={onABreak}
+    >
+      {label || msToHuman(time)}
+    </Display>
   )
 }
 

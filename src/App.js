@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react'
 import Timer from './components/Timer'
 import About from './components/About'
-import useTimer, { DURATION } from './hooks/useTimer'
+import useTimer from './hooks/useTimer'
 import Backdrop from './components/Backdrop'
 import styled from 'styled-components'
+
+const DURATION = 10000
+const BREAK_DURATION = 5000
 
 const Toggle = styled.button`
   position: absolute;
@@ -22,14 +25,12 @@ const Toggle = styled.button`
   &:focus {
     background-size: 100% 70%;
     color: linen;
-    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='20px' height='20px'%3E%3Ccircle cx='50' cy='50' r='50' fill='linen'/%3E%3C/svg%3E"),
-      auto;
   }
 `
 
 function App() {
   const [appVisible, setAppVisible] = useState(true)
-  const [timer, toggleTimer] = useTimer()
+  const [timer, toggleTimer] = useTimer(DURATION, BREAK_DURATION)
 
   useEffect(() => {
     let timerInterval
@@ -48,7 +49,11 @@ function App() {
   }, [timer.time, timer.active])
 
   return (
-    <Backdrop onABreak={timer.onABreak} time={timer.time} duration={DURATION}>
+    <Backdrop
+      time={timer.time}
+      duration={timer.onABreak ? BREAK_DURATION : DURATION}
+      onABreak={timer.onABreak}
+    >
       <Toggle
         onClick={e => {
           e.target.blur()

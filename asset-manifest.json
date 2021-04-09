@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/tommy-toes/static/css/main.c87d6b65.chunk.css",
-    "main.js": "/tommy-toes/static/js/main.4bb9e6bd.chunk.js",
-    "main.js.map": "/tommy-toes/static/js/main.4bb9e6bd.chunk.js.map",
+    "main.css": "/tommy-toes/static/css/main.08ecdbbe.chunk.css",
+    "main.js": "/tommy-toes/static/js/main.5b35bf57.chunk.js",
+    "main.js.map": "/tommy-toes/static/js/main.5b35bf57.chunk.js.map",
     "runtime-main.js": "/tommy-toes/static/js/runtime-main.efc7638b.js",
     "runtime-main.js.map": "/tommy-toes/static/js/runtime-main.efc7638b.js.map",
     "static/css/2.a1596f27.chunk.css": "/tommy-toes/static/css/2.a1596f27.chunk.css",
@@ -12,7 +12,7 @@
     "static/js/3.054324d2.chunk.js.map": "/tommy-toes/static/js/3.054324d2.chunk.js.map",
     "index.html": "/tommy-toes/index.html",
     "static/css/2.a1596f27.chunk.css.map": "/tommy-toes/static/css/2.a1596f27.chunk.css.map",
-    "static/css/main.c87d6b65.chunk.css.map": "/tommy-toes/static/css/main.c87d6b65.chunk.css.map",
+    "static/css/main.08ecdbbe.chunk.css.map": "/tommy-toes/static/css/main.08ecdbbe.chunk.css.map",
     "static/js/2.30dc86f6.chunk.js.LICENSE.txt": "/tommy-toes/static/js/2.30dc86f6.chunk.js.LICENSE.txt",
     "static/media/index.css": "/tommy-toes/static/media/Telegraf-Regular.0c6d87bb.otf",
     "static/media/alarm.0b403865.wav": "/tommy-toes/static/media/alarm.0b403865.wav",
@@ -22,7 +22,7 @@
     "static/js/runtime-main.efc7638b.js",
     "static/css/2.a1596f27.chunk.css",
     "static/js/2.30dc86f6.chunk.js",
-    "static/css/main.c87d6b65.chunk.css",
-    "static/js/main.4bb9e6bd.chunk.js"
+    "static/css/main.08ecdbbe.chunk.css",
+    "static/js/main.5b35bf57.chunk.js"
   ]
 }

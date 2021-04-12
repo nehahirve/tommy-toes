@@ -7,12 +7,11 @@ import ToggleButton from './components/ToggleButton'
 
 import useTimer from './hooks/useTimer'
 
-const DURATION = 10000
-const BREAK_DURATION = 5000
+const DURATION = 25 * 60 * 1000
 
 function App() {
   const [appVisible, setAppVisible] = useState(true)
-  const [timer, toggleTimer] = useTimer(DURATION, BREAK_DURATION)
+  const [timer, toggleTimer] = useTimer(DURATION)
 
   const toggleApp = () => setAppVisible(!appVisible)
 
@@ -24,17 +23,17 @@ function App() {
     if (timer.active) {
       timerInterval =
         timer.time > 0 &&
-        setInterval(() => {
+        setTimeout(() => {
           toggleTimer('COUNTDOWN')
-        }, 1000)
-    } else clearInterval(timerInterval)
-    return () => clearInterval(timerInterval)
+        }, 10)
+    } else clearTimeout(timerInterval)
+    return () => clearTimeout(timerInterval)
   }, [timer.time, timer.active])
 
   return (
     <Backdrop
       time={timer.time}
-      duration={timer.onABreak ? BREAK_DURATION : DURATION}
+      duration={timer.duration}
       onABreak={timer.onABreak}
     >
       <ToggleButton toggled={!appVisible} toggle={toggleApp} />

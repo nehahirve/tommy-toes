@@ -7,19 +7,31 @@ const alarm = new Audio(alarmSFX)
 const work = new Audio(workSFX)
 alarm.volume = 0.6
 
-export default function useTimer(
-  DURATION = 25 * 60000,
-  BREAK_DURATION = 5 * 60000
-) {
+export default function useTimer(DURATION) {
   const [timer, setTimer] = useState({
     active: false,
     time: DURATION,
+    duration: DURATION,
     onABreak: false,
     control: 'START'
   })
 
   const toggleTimer = action => {
     switch (action) {
+      case 'INCREMENT':
+        setTimer({
+          ...timer,
+          duration: timer.duration + 60000,
+          time: timer.duration + 60000
+        })
+        break
+      case 'DECREMENT':
+        setTimer({
+          ...timer,
+          duration: timer.duration - 60000,
+          time: timer.duration - 60000
+        })
+        break
       case 'START':
         setTimer({ ...timer, active: true, control: 'PAUSE' })
         break
@@ -32,7 +44,7 @@ export default function useTimer(
           active: true,
           control: 'PAUSE',
           onABreak: true,
-          time: BREAK_DURATION
+          time: timer.duration / 5
         })
         break
       case 'RESET':
@@ -40,7 +52,7 @@ export default function useTimer(
           ...timer,
           control: 'START',
           onABreak: false,
-          time: DURATION
+          time: timer.duration
         })
         break
       case 'COUNTDOWN':

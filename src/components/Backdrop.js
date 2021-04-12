@@ -17,7 +17,8 @@ const Wrapper = styled.div`
 
 const Backdrop = ({ time, children, duration, onABreak }) => {
   const gradient = onABreak ? gradientBreak : gradientWork
-  const ripeness = gradient[Math.floor(mapToGradient(time, duration)) - 1]
+  const range = onABreak ? duration / 5 : duration
+  const ripeness = gradient[Math.floor(mapToGradient(time, range)) - 1]
 
   return (
     <main>

@@ -7,9 +7,6 @@ const alarm = new Audio(alarmSFX)
 const work = new Audio(workSFX)
 alarm.volume = 0.6
 
-// export const DURATION = 1000 * 6
-// const BREAK_DURATION = 1000 * 4
-
 export default function useTimer(
   DURATION = 25 * 60000,
   BREAK_DURATION = 5 * 60000
@@ -22,7 +19,6 @@ export default function useTimer(
   })
 
   const toggleTimer = action => {
-    console.log(action)
     switch (action) {
       case 'START':
         setTimer({ ...timer, active: true, control: 'PAUSE' })

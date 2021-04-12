@@ -18,7 +18,7 @@ const Display = styled.button`
   }
 `
 
-const Timer = ({ timer, toggleTimer }) => {
+const TimerDisplay = ({ timer, toggleTimer }) => {
   const [label, setLabel] = useState(null)
   const { time, control, onABreak } = timer
 
@@ -55,4 +55,4 @@ const Timer = ({ timer, toggleTimer }) => {
   )
 }
 
-export default Timer
+export default TimerDisplay

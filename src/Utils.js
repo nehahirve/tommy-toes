@@ -35,11 +35,11 @@ const mapToGradient = (input, ms) => {
 
 export { msToHuman, mapToGradient, createGradient }
 
-function rgbStringToRgbObject(c1) {
-  c1 = c1.slice(4, -1).split(',')
+function rgbStringToRgbObject(rgbString) {
+  rgbString = rgbString.slice(4, -1).split(',')
   return {
-    r: +c1[0],
-    g: +c1[1],
-    b: +c1[2]
+    r: +rgbString[0],
+    g: +rgbString[1],
+    b: +rgbString[2]
   }
 }

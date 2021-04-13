@@ -7,35 +7,29 @@ import ToggleButton from './components/ToggleButton'
 
 import useTimer from './hooks/useTimer'
 
-const DURATION = 25 * 60 * 1000
-
 function App() {
   const [appVisible, setAppVisible] = useState(true)
-  const [timer, toggleTimer] = useTimer(DURATION)
+  const [timer, toggleTimer] = useTimer()
 
   const toggleApp = () => setAppVisible(!appVisible)
 
   useEffect(() => {
     let timerInterval
-    if (timer.active && timer.time === 0) {
-      toggleTimer(timer.onABreak ? 'TIMEOUT' : 'STARTBREAK')
+    if (timer.isRunning && timer.currentTime === 0) {
+      toggleTimer(timer.onABreak ? 'TIMEFORRESET' : 'TIMEFORBREAK')
     }
-    if (timer.active) {
+    if (timer.isRunning) {
       timerInterval =
-        timer.time > 0 &&
+        timer.currentTime > 0 &&
         setTimeout(() => {
           toggleTimer('COUNTDOWN')
         }, 10)
     } else clearTimeout(timerInterval)
     return () => clearTimeout(timerInterval)
-  }, [timer.time, timer.active])
+  }, [timer.currentTime, timer.isRunning])
 
   return (
-    <Backdrop
-      time={timer.time}
-      duration={timer.duration}
-      onABreak={timer.onABreak}
-    >
+    <Backdrop timer={timer}>
       <ToggleButton toggled={!appVisible} toggle={toggleApp} />
       {appVisible && <TimerDisplay timer={timer} toggleTimer={toggleTimer} />}
       {!appVisible && <About />}

@@ -7,11 +7,11 @@ const alarm = new Audio(alarmSFX)
 const work = new Audio(workSFX)
 alarm.volume = 0.6
 
-export default function useTimer(DURATION) {
+export default function useTimer(DURATION = 25 * 60 * 1000) {
   const [timer, setTimer] = useState({
-    active: false,
-    time: DURATION,
-    duration: DURATION,
+    isRunning: false,
+    timerLength: DURATION,
+    currentTime: DURATION,
     onABreak: false,
     control: 'START'
   })
@@ -21,30 +21,30 @@ export default function useTimer(DURATION) {
       case 'INCREMENT':
         setTimer({
           ...timer,
-          duration: timer.duration + 60000,
-          time: timer.duration + 60000
+          timerLength: timer.timerLength + 60000,
+          currentTime: timer.timerLength + 60000
         })
         break
       case 'DECREMENT':
         setTimer({
           ...timer,
-          duration: timer.duration - 60000,
-          time: timer.duration - 60000
+          timerLength: timer.timerLength - 60000,
+          currentTime: timer.timerLength - 60000
         })
         break
       case 'START':
-        setTimer({ ...timer, active: true, control: 'PAUSE' })
+        setTimer({ ...timer, isRunning: true, control: 'PAUSE' })
         break
       case 'PAUSE':
-        setTimer({ ...timer, active: false, control: 'START' })
+        setTimer({ ...timer, isRunning: false, control: 'START' })
         break
       case 'BREAK':
         setTimer({
           ...timer,
-          active: true,
+          isRunning: true,
           control: 'PAUSE',
           onABreak: true,
-          time: timer.duration / 5
+          currentTime: timer.timerLength / 5
         })
         break
       case 'RESET':
@@ -52,28 +52,28 @@ export default function useTimer(DURATION) {
           ...timer,
           control: 'START',
           onABreak: false,
-          time: timer.duration
+          currentTime: timer.timerLength
         })
         break
       case 'COUNTDOWN':
         setTimer({
           ...timer,
           control: 'PAUSE',
-          time: timer.time - 1000
+          currentTime: timer.currentTime - 1000
         })
         break
-      case 'STARTBREAK':
+      case 'TIMEFORBREAK':
         setTimer({
           ...timer,
-          active: false,
+          isRunning: false,
           control: 'BREAK'
         })
         alarm.play()
         break
-      case 'TIMEOUT':
+      case 'TIMEFORRESET':
         setTimer({
           ...timer,
-          active: false,
+          isRunning: false,
           control: 'RESET'
         })
         work.play()

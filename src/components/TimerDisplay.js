@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import styled from 'styled-components'
-import { msToHuman } from '../Utils'
+import { msToTimeString } from '../Utils'
 import 'animate.css'
 
 const Wrapper = styled.div`
@@ -42,7 +42,7 @@ const Display = styled.button`
 
 const TimerDisplay = ({ timer, toggleTimer }) => {
   const [label, setLabel] = useState(null)
-  const { time, control, onABreak, duration } = timer
+  const { currentTime, control, onABreak, timerLength } = timer
 
   const triggerHoverState = e => {
     e.target.focus()
@@ -69,7 +69,7 @@ const TimerDisplay = ({ timer, toggleTimer }) => {
 
   return (
     <Wrapper>
-      {duration === time && (
+      {timerLength === currentTime && (
         <Triangle onClick={incrementTime}>
           <svg xmlns='http://www.w3.org/2000/svg' viewBox='-10 0 120 120'>
             <polygon points='50 15, 100 100, 0 100' />
@@ -78,7 +78,7 @@ const TimerDisplay = ({ timer, toggleTimer }) => {
       )}
       <Display
         className={
-          time === 0
+          currentTime === 0
             ? 'animate__animated animate__infinite animate__wobble'
             : null
         }
@@ -89,9 +89,9 @@ const TimerDisplay = ({ timer, toggleTimer }) => {
         onClick={handleClick}
         onABreak={onABreak}
       >
-        {label || msToHuman(time)}
+        {label || msToTimeString(currentTime)}
       </Display>
-      {duration === time && (
+      {timerLength === currentTime && (
         <Triangle onClick={decrementTime}>
           <svg
             style={{ transform: 'rotate(180deg)' }}

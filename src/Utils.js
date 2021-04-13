@@ -1,4 +1,4 @@
-const msToHuman = ms => {
+const msToTimeString = ms => {
   const minutes = Math.floor((ms / 1000 / 60) % 60)
   const seconds = Math.floor((ms / 1000) % 60)
   return [
@@ -10,7 +10,7 @@ const msToHuman = ms => {
 const createGradient = (c1, c2) => {
   c1 = rgbStringToRgbObject(c1)
   c2 = rgbStringToRgbObject(c2)
-  let gradient = []
+  const gradient = []
   for (let i = 0; i < 255; i++) {
     let r = c1.r + (i * (c2.r - c1.r)) / 255
     let g = c1.g + (i * (c2.g - c1.g)) / 255
@@ -24,16 +24,14 @@ const createGradient = (c1, c2) => {
   })
 }
 
-const mapToGradient = (input, ms) => {
+const mapToRGBGradient = (input, range) => {
   const outputStart = 1
   const outputEnd = 255
   const inputStart = 0
-  const inputEnd = ms
+  const inputEnd = range
   const slope = (outputEnd - outputStart) / (inputEnd - inputStart)
   return outputStart + slope * (input - inputStart)
 }
-
-export { msToHuman, mapToGradient, createGradient }
 
 function rgbStringToRgbObject(rgbString) {
   rgbString = rgbString.slice(4, -1).split(',')
@@ -43,3 +41,5 @@ function rgbStringToRgbObject(rgbString) {
     b: +rgbString[2]
   }
 }
+
+export { msToTimeString, mapColourToRGBGradient, createGradient }

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { createGradient, mapToGradient } from '../Utils'
+import { createGradient, mapColourToRGBGradient } from '../Utils'
 
 const colours = { raw: 'rgb(136, 157, 2)', ripe: 'rgb(202, 61, 0)' }
 const gradientWork = createGradient(colours.ripe, colours.raw)
@@ -15,10 +15,12 @@ const Wrapper = styled.div`
   align-items: center;
 `
 
-const Backdrop = ({ time, children, duration, onABreak }) => {
+const Backdrop = ({ timer, children }) => {
+  const { currentTime, timerLength, onABreak } = timer
   const gradient = onABreak ? gradientBreak : gradientWork
-  const range = onABreak ? duration / 5 : duration
-  const ripeness = gradient[Math.floor(mapToGradient(time, range)) - 1]
+  const range = onABreak ? timerLength / 5 : timerLength
+  const ripeness =
+    gradient[Math.floor(mapColourToRGBGradient(currentTime, range)) - 1]
 
   return (
     <main>

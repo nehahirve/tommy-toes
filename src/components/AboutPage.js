@@ -19,7 +19,7 @@ const Wrapper = styled.div`
   max-width: 30rem;
 `
 
-const About = () => {
+const AboutPage = () => {
   return (
     <Wrapper>
       <h1>
@@ -33,4 +33,4 @@ const About = () => {
   )
 }
 
-export default About
+export default AboutPage

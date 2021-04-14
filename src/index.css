@@ -30,12 +30,9 @@
     auto;
 }
 
-button:hover,
-a:hover,
-svg:hover,
-polygon:hover {
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='20px' height='20px'%3E%3Ccircle cx='50' cy='50' r='50' fill='linen'/%3E%3C/svg%3E"),
-    auto;
+*::selection {
+  color: linen;
+  background: black;
 }
 
 main {
@@ -57,13 +54,16 @@ p {
   font-weight: 400;
 }
 
-*::selection {
-  color: linen;
-  background: black;
-}
-
 a {
   text-decoration: none;
   color: inherit;
   font-family: 'Agrandir';
+}
+
+button:hover,
+a:hover,
+svg:hover,
+polygon:hover {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' width='20px' height='20px'%3E%3Ccircle cx='50' cy='50' r='50' fill='linen'/%3E%3C/svg%3E"),
+    auto;
 }

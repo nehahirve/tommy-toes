@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 
 import TimerDisplay from './components/TimerDisplay'
-import About from './components/About'
+import AboutPage from './components/AboutPage'
 import Backdrop from './components/Backdrop'
 import ToggleButton from './components/ToggleButton'
 
@@ -32,7 +32,7 @@ function App() {
     <Backdrop timer={timer}>
       <ToggleButton toggled={!appVisible} toggle={toggleApp} />
       {appVisible && <TimerDisplay timer={timer} toggleTimer={toggleTimer} />}
-      {!appVisible && <About />}
+      {!appVisible && <AboutPage />}
     </Backdrop>
   )
 }

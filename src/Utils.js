@@ -24,7 +24,7 @@ const createGradient = (c1, c2) => {
   })
 }
 
-const mapToRGBGradient = (input, range) => {
+const mapColourToRGBGradient = (input, range) => {
   const outputStart = 1
   const outputEnd = 255
   const inputStart = 0

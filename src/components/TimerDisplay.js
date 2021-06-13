@@ -70,7 +70,7 @@ const TimerDisplay = ({ timer, toggleTimer }) => {
   return (
     <Wrapper>
       {timerLength === currentTime && (
-        <Triangle onClick={incrementTime}>
+        <Triangle aria-label="increment" onClick={incrementTime}>
           <svg xmlns='http://www.w3.org/2000/svg' viewBox='-10 0 120 120'>
             <polygon points='50 15, 100 100, 0 100' />
           </svg>
@@ -92,7 +92,7 @@ const TimerDisplay = ({ timer, toggleTimer }) => {
         {label || msToTimeString(currentTime)}
       </Display>
       {timerLength === currentTime && (
-        <Triangle onClick={decrementTime}>
+        <Triangle aria-label="decrement" onClick={decrementTime}>
           <svg
             style={{ transform: 'rotate(180deg)' }}
             xmlns='http://www.w3.org/2000/svg'
